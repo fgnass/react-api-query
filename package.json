@@ -1,6 +1,6 @@
 {
   "name": "react-api-query",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hooks to use react-query with a typed API client.",
   "keywords": [
     "react-query",
