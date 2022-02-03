@@ -1,4 +1,5 @@
 import { useQuery, useQueryClient, UseQueryOptions } from "react-query";
+import { Updater } from "react-query/types/core/utils";
 
 export function query<Api extends Record<string, (...args: any) => any>>(
   api: Api
@@ -32,8 +33,8 @@ export function query<Api extends Record<string, (...args: any) => any>>(
     return {
       ...result,
       queryKey,
-      update: (updater: (old: TData | undefined) => TData) => {
-        queryClient.setQueryData<TData>(queryKey, updater);
+      update: (updater: Updater<TData | undefined, TData>) => {
+        queryClient.setQueryData(queryKey, updater);
       },
       invalidate: () => {
         queryClient.invalidateQueries(queryKey);
