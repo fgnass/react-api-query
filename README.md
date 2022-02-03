@@ -28,9 +28,9 @@ const client = {
 Using this with [react-query](https://react-query.tanstack.com/) now becomes as easy as this:
 
 ```tsx
-import reactApiQuery from "react-api-query";
+import { apiHooks } from "react-api-query";
 
-const { useApiQuery, useApiMutation } = reactApiQuery(client);
+const { useApiQuery, useApiMutation } = apiHooks(client);
 
 function Users() {
   const query = useApiQuery("getUsers");
@@ -56,7 +56,22 @@ function Users() {
 
 **Note:** The query-keys are generated from the name of the API method you are calling and the arguments you pass.
 
-# Docs
+# Installation
+
+```
+npm install -S react-query react-api-query
+```
+
+# Usage
+
+```ts
+import { apiHooks } from "react-api-query";
+import client from "./client";
+
+const { useApiQuery, useApiMutation } = apiHooks(client);
+```
+
+# API
 
 The hooks are just thin wrappers around their counterparts in React Query. Head over to the [official docs](https://react-query.tanstack.com/) for a deep dive.
 
