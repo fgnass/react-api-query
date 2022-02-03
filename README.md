@@ -1,4 +1,4 @@
-# 💮 react-api-query
+# 🌸 react-api-query
 
 Hooks to use [react-query](https://react-query.tanstack.com/) with a typed API client.
 
@@ -57,6 +57,8 @@ function Users() {
 **Note:** The query-keys are generated from the name of the API method you are calling and the arguments you pass.
 
 # Docs
+
+The hooks are just thin wrappers around their counterparts in React Query. Head over to the [official docs](https://react-query.tanstack.com/) for a deep dive.
 
 ## `useApiQuery(method | opts, ...args)`
 
