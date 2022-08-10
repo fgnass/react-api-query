@@ -1,8 +1,9 @@
 import {
+  defaultContext,
   useQuery,
   useQueryClient,
   UseQueryOptions,
-  QueryClient
+  QueryClient,
 } from "@tanstack/react-query";
 
 // REVISIT: The Updater type was exported in V3. Is there a better way to get hold of it?
@@ -34,9 +35,10 @@ export function query<Api extends Record<string, (...args: any) => any>>(
     const result = useQuery<TQueryFnData, Error, TData>({
       queryKey,
       queryFn,
+      context: defaultContext,
       ...(queryOpts as any),
     });
-    const queryClient = useQueryClient();
+    const queryClient = useQueryClient({ context: defaultContext });
     return {
       ...result,
       queryKey,

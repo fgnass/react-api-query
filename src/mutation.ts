@@ -1,4 +1,5 @@
 import {
+  defaultContext,
   useMutation,
   UseMutationOptions,
   UseMutationResult,
@@ -40,7 +41,7 @@ export function mutation<Api extends { [k: string]: (...args: any) => any }>(
       ApiData<T>,
       Error,
       ApiArgs<T>
-    >(mutationKey, mutationFn, opts);
+    >(mutationKey, mutationFn, { context: defaultContext, ...opts });
 
     const fn = async (...args: ApiArgs<T>) => mutateAsync(args);
     Object.assign(fn, mutation);
