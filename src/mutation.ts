@@ -2,7 +2,7 @@ import {
   useMutation,
   UseMutationOptions,
   UseMutationResult,
-} from "react-query";
+} from "@tanstack/react-query";
 
 export function mutation<Api extends { [k: string]: (...args: any) => any }>(
   api: Api
@@ -30,11 +30,11 @@ export function mutation<Api extends { [k: string]: (...args: any) => any }>(
     method: T,
     opts: MutationOpts<T> = {}
   ) {
-    const mutationKey = method;
+    const mutationKey = [method];
 
     const mutationFn: (vars: ApiArgs<T>) => Promise<ApiData<T>> = async (
       vars
-    ) => (api[method] as any)(...(vars as any));
+    ) => api[method].apply(api, vars);
 
     const { mutate, mutateAsync, ...mutation } = useMutation<
       ApiData<T>,

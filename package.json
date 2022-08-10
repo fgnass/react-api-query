@@ -1,6 +1,6 @@
 {
   "name": "react-api-query",
-  "version": "1.0.1",
+  "version": "2.0.0-next.1",
   "description": "Hooks to use react-query with a typed API client.",
   "keywords": [
     "react-query",
@@ -16,10 +16,10 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "react-query": "^3.34.12",
-    "typescript": "^4.5.5"
+    "@tanstack/react-query": "^4.0.0",
+    "typescript": "^4.7.4"
   },
-  "dpeerDependencies": {
-    "react-query": "^3.34.12"
+  "peerDependencies": {
+    "@tanstack/react-query": "^4.0.0"
   }
 }
