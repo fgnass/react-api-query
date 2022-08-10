@@ -1,6 +1,6 @@
 # 🌸 react-api-query
 
-Hooks to use [react-query](https://react-query.tanstack.com/) with a typed API client.
+Hooks to use [react-query](https://tanstack.com/query/v4) with a typed API client.
 
 ## More types, less typing!
 
@@ -25,7 +25,7 @@ const client = {
 };
 ```
 
-Using this with [react-query](https://react-query.tanstack.com/) now becomes as easy as this:
+Using this with [react-query](https://tanstack.com/query/v4) now becomes as easy as this:
 
 ```tsx
 import { apiHooks } from "react-api-query";
@@ -127,6 +127,8 @@ return (
 # Note
 
 This library has been written with [oazapfts](https://npmjs.com/package/oazapfts) in mind – a utility to create TypeScript clients from OpenAPI specs, but works with any kind of typed client interfaces.
+
+Since V2, the module is published as ESM-only.
 
 # License
 
