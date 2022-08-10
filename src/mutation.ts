@@ -1,5 +1,4 @@
 import {
-  defaultContext,
   useMutation,
   UseMutationOptions,
   UseMutationResult,
@@ -25,7 +24,7 @@ export function mutation<Api extends { [k: string]: (...args: any) => any }>(
   >;
 
   /**
-   *
+   * React hook to perform API mutations via React Query.
    */
   return function useApiMutation<T extends ApiKey>(
     method: T,
@@ -41,7 +40,7 @@ export function mutation<Api extends { [k: string]: (...args: any) => any }>(
       ApiData<T>,
       Error,
       ApiArgs<T>
-    >(mutationKey, mutationFn, { context: defaultContext, ...opts });
+    >(mutationKey, mutationFn, opts);
 
     const fn = async (...args: ApiArgs<T>) => mutateAsync(args);
     Object.assign(fn, mutation);
