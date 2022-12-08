@@ -71,19 +71,22 @@ import client from "./client";
 const { useApiQuery, useApiMutation } = apiHooks(client);
 ```
 
+You can play with a live example over at StackBlitz:
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/typed-rpc-nextjs)
+
 # API
 
 The hooks are just thin wrappers around their counterparts in React Query. Head over to the [official docs](https://tanstack.com/query/v4/docs/adapters/react-query) for a deep dive.
 
 ## `useApiQuery(method | opts, ...args)`
 
-Wrapper around [useQuery](https://tanstack.com/query/v4/docs/reference/useQuery) where you don't need to provide a query key nor a query function. Instead you pass the the name of one of your API methods and
-the arguments your API expects.
+Wrapper around [useQuery](https://tanstack.com/query/v4/docs/reference/useQuery) where you don't need to provide a query key nor a query function. Instead, you pass the name of one of your API methods and the arguments your API expects.
 
 If you don't need to provide any further query options
 you can pass the method name as string.
 
-Otherwise you can pass an object that takes the same options as [useQuery](https://tanstack.com/query/v4/docs/reference/useQuery) with an additional `method` property:
+Otherwise, you can pass an object that takes the same options as [useQuery](https://tanstack.com/query/v4/docs/reference/useQuery) with an additional `method` property:
 
 ```ts
 useApiQuery({ method: "getUsers", staleTime: 1000 });
@@ -91,7 +94,7 @@ useApiQuery({ method: "getUsers", staleTime: 1000 });
 
 ### Returns
 
-The return value is the same as with [useQuery](https://tanstack.com/query/v4/docs/reference/useQuery) but provides the following additional methods for convenience:
+The return value is the same as with [useQuery](https://tanstack.com/query/v4/docs/reference/useQuery), but provides the following additional methods for convenience:
 
 #### `update(updater)`
 
