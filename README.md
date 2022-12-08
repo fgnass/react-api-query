@@ -1,10 +1,10 @@
 # 🌸 react-api-query
 
-Hooks to use [react-query](https://tanstack.com/query/v4) with a typed API client.
+React hooks to use [TanStack Query](https://tanstack.com/query/v4) with a typed API client.
 
 ## More types, less typing!
 
-Assume you have a an API like this:
+Assume you have an API like this:
 
 ```ts
 interface User {
@@ -107,13 +107,13 @@ Shortcut for calling `queryClient.removeQueries(queryKey)`
 
 ## `useApiMutation(method, opts)`
 
-Wrapper around [useMutation](https://react-query.tanstack.com/reference/useMutation) where you don't need to provide a mutation key nor a mutation function. Instead you pass the the name of one of your API methods.
+Wrapper around [useMutation](https://react-query.tanstack.com/reference/useMutation) where you don't need to provide a mutation key nor a mutation function. Instead, you pass the name of one of your API methods.
 
 ### Returns
 
 The return value is an async function that calls `mutateAsync` under the hood and returns its promise.
 
-While the result is a function it still has all the return values of [useMutation](https://tanstack.com/query/v4/docs/reference/useMutation) mixed in, like `isLoading` or `isError`:
+While the result is a function, it still has all the return values of [useMutation](https://tanstack.com/query/v4/docs/reference/useMutation) mixed in, like `isLoading` or `isError`:
 
 ```tsx
 const deleteUser = useApiMutation("deleteUser");
@@ -126,9 +126,10 @@ return (
 
 # Note
 
-This library has been written with [oazapfts](https://npmjs.com/package/oazapfts) in mind – a utility to create TypeScript clients from OpenAPI specs, but works with any kind of typed client interfaces.
+This library has been written with [oazapfts](https://npmjs.com/package/oazapfts) in mind – a utility to create TypeScript clients from OpenAPI specs, but works with any kind of typed client interfaces, for example [https://npmjs.com/package/typed-rpc](typed-rpc).
 
-Since V2, the module is published as ESM-only.
+> **Note**
+> Since V2, the module is published as ESM-only.
 
 # License
 
