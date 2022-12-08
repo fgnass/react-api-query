@@ -1,5 +1,5 @@
-import { mutation } from "./mutation";
-import { query } from "./query";
+import { mutation } from "./mutation.js";
+import { query } from "./query.js";
 
 export function apiHooks<T extends object>(api: T) {
   type Functions<T> = {
