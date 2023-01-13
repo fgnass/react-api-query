@@ -1,6 +1,6 @@
 {
   "name": "react-api-query",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "React hooks to use TanStack Query with a typed API client.",
   "keywords": [
     "react-query",
