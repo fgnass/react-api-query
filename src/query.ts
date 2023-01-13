@@ -4,7 +4,7 @@ import {
   UseQueryOptions,
 } from "@tanstack/react-query";
 
-import type { Updater } from "@tanstack/query-core/build/types/packages/query-core/src/utils";
+import type { Updater } from "@tanstack/react-query";
 
 export function query<Api extends Record<string, (...args: any) => any>>(
   api: Api
