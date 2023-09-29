@@ -1,6 +1,6 @@
 # 🌸 react-api-query
 
-React hooks to use [TanStack Query](https://tanstack.com/query/v4) with a typed API client.
+React hooks to use [TanStack Query](https://tanstack.com/query/latest/docs) with a typed API client.
 
 - 🛡️ 100% Type-safe
 - 🕵️ IDE autocompletion
@@ -30,7 +30,7 @@ interface User {
 }
 ```
 
-Using this with [react-query](https://tanstack.com/query/v4) now becomes as easy as this:
+Using this with [react-query](https://tanstack.com/query/latest/docs) now becomes as easy as this:
 
 ```tsx
 import { apiHooks } from "react-api-query";
@@ -76,25 +76,25 @@ You can play with a live example over at StackBlitz:
 
 # API
 
-The hooks are just thin wrappers around their counterparts in React Query. Head over to the [official docs](https://tanstack.com/query/v4/docs/adapters/react-query) for a deep dive.
+The hooks are just thin wrappers around their counterparts in React Query. Head over to the [official docs](https://tanstack.com/query/latest/docs/react/overview) for a deep dive.
 
 ## `useApiQuery(method | opts, ...args)`
 
-Wrapper around [useQuery](https://tanstack.com/query/v4/docs/reference/useQuery) where you don't need to provide a query key nor a query function. Instead, you pass the name of one of your API methods and the arguments your API expects.
+Wrapper around [useQuery](https://tanstack.com/query/latest/docs/react/reference/useQuery) where you don't need to provide a query key nor a query function. Instead, you pass the name of one of your API methods and the arguments your API expects.
 
-If you don't need to provide any further query options you can pass the method name as string.
+If you don't need to provide any further query options, you can pass the method name as string.
 
-Otherwise, you can pass an object that takes the same options as [useQuery](https://tanstack.com/query/v4/docs/reference/useQuery) with an additional `method` property:
+Otherwise, you can pass an object that takes the same options as [useQuery](https://tanstack.com/query/latest/docs/react/reference/useQuery) with an additional `method` property:
 
 ```ts
 useApiQuery({ method: "getUser", staleTime: 1000 }, 42);
 ```
 
-This will call `api.getUser(42)`. Of course all these arguments are properly typed, so you will get the correct autocompletion in your IDE.
+This will call `api.getUser(42)`. Of course, all these arguments are properly typed, so you will get the correct autocompletion in your IDE.
 
 ### Returns
 
-The return value is the same as with [useQuery](https://tanstack.com/query/v4/docs/reference/useQuery), but provides the following additional methods for convenience:
+The return value is the same as with [useQuery](https://tanstack.com/query/latest/docs/react/reference/useQuery), but provides the following additional methods for convenience:
 
 #### `update(updater)`
 
@@ -108,9 +108,15 @@ Shortcut for calling `queryClient.invalidateQueries(queryKey)`
 
 Shortcut for calling `queryClient.removeQueries(queryKey)`
 
+## `useInfiniteApiQuery(method | opts, ...args)`
+
+Wrapper around [useInfiniteQuery](https://tanstack.com/query/latest/docs/react/reference/useInfiniteQuery) where you don't need to provide a query key nor a query function. Instead, you pass the name of one of your API methods and the arguments your API expects.
+
+If you don't need to provide any further query options, you can pass the method name as string.
+
 ## `useApiMutation(method, opts)`
 
-Wrapper around [useMutation](https://react-query.tanstack.com/reference/useMutation) where you don't need to provide a mutation key nor a mutation function. Instead, you pass the name of one of your API methods.
+Wrapper around [useMutation](https://tanstack.com/query/latest/docs/react/reference/useMutation) where you don't need to provide a mutation key nor a mutation function. Instead, you pass the name of one of your API methods.
 
 ### Returns
 
@@ -129,7 +135,7 @@ return (
 
 # Prefetching
 
-You can also create a `prefetch` method to pre-populate data outside of your React components, for example inside your router:
+You can also create a `prefetch` method to pre-populate data outside your React components, for example inside your router:
 
 ```ts
 import { prefetching } from "react-api-query";

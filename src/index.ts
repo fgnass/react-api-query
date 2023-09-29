@@ -1,3 +1,4 @@
+import { infiniteQuery } from "./infiniteQuery.js";
 import { mutation } from "./mutation.js";
 import { query } from "./query.js";
 
@@ -15,5 +16,6 @@ export function apiHooks<T extends object>(api: T) {
   return {
     useApiQuery: query<Api>(api as any),
     useApiMutation: mutation<Api>(api as any),
+    useInfiniteApiQuery: infiniteQuery<Api>(api as any),
   };
 }
