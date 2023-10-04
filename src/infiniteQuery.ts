@@ -19,10 +19,9 @@ export function infiniteQuery<
     TData = Awaited<TQueryFnData>
   >(method: T, opts: UseInfiniteQueryOptions<TData>) {
     const queryKey = [method] as const;
-    const queryFn = api[method];
     const result = useInfiniteQuery<TQueryFnData, Error, TData>({
       queryKey,
-      queryFn,
+      queryFn: ({ pageParam }) => api[method](pageParam),
       ...(opts as any),
     });
     const queryClient = useQueryClient();
