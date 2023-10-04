@@ -108,11 +108,9 @@ Shortcut for calling `queryClient.invalidateQueries(queryKey)`
 
 Shortcut for calling `queryClient.removeQueries(queryKey)`
 
-## `useInfiniteApiQuery(method | opts, ...args)`
+## `useInfiniteApiQuery(method, opts)`
 
 Wrapper around [useInfiniteQuery](https://tanstack.com/query/latest/docs/react/reference/useInfiniteQuery) where you don't need to provide a query key nor a query function. Instead, you pass the name of one of your API methods and the arguments your API expects.
-
-If you don't need to provide any further query options, you can pass the method name as string.
 
 ## `useApiMutation(method, opts)`
 

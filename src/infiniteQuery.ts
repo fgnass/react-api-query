@@ -17,23 +17,13 @@ export function infiniteQuery<
     T extends keyof Api,
     TQueryFnData = ReturnType<Api[T]>,
     TData = Awaited<TQueryFnData>
-  >(
-    opts: T | (UseInfiniteQueryOptions<TData> & { method: T }),
-    ...args: Parameters<Api[T]>
-  ) {
-    if (typeof opts !== "object") {
-      opts = { method: opts };
-    }
-    const { method, ...queryOpts } = opts;
-    const queryKey = [method, ...args] as const;
-    const apiFn: (...args: Parameters<Api[T]>) => TQueryFnData = api[
-      method
-    ] as any;
-    const queryFn = () => apiFn.apply(api, args);
+  >(method: T, opts: UseInfiniteQueryOptions<TData>) {
+    const queryKey = [method] as const;
+    const queryFn = api[method];
     const result = useInfiniteQuery<TQueryFnData, Error, TData>({
       queryKey,
       queryFn,
-      ...(queryOpts as any),
+      ...(opts as any),
     });
     const queryClient = useQueryClient();
     return {
