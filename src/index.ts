@@ -2,7 +2,7 @@ import { infiniteQuery } from "./infiniteQuery.js";
 import { mutation } from "./mutation.js";
 import { query } from "./query.js";
 
-export { prefetching } from "./prefetch";
+export { prefetching } from "./prefetch.js";
 
 /**
  * Create the `useApiQuery` and `useApiMutation` hooks for the given API.
